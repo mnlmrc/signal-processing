@@ -44,7 +44,7 @@ class FilterHilbert:
     def _filter(self, cutoff):
         lkernel = int(self.n_cycles * self.fsample / cutoff[0]) + 1
         b = firwin(lkernel, [cutoff[0], cutoff[1]], fs=self.fsample, pass_zero='bandpass'), 1
-        x_filt = filtfilt(b[0], b[1], self.x, axis=-1, padlen=self.nsample - 1)
+        x_filt = filtfilt(b[0], b[1], self.x, axis=-1)
 
         return x_filt
 
